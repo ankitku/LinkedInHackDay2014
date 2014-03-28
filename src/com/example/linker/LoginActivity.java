@@ -1,9 +1,10 @@
 package com.example.linker;
 
+import model.User;
+
 import org.scribe.exceptions.OAuthException;
 import org.scribe.model.OAuthRequest;
 import org.scribe.model.Response;
-import org.scribe.model.Token;
 import org.scribe.model.Verb;
 
 import android.content.Intent;
@@ -20,10 +21,8 @@ public class LoginActivity extends LinkerActivity {
 
 		@Override
 		protected String doInBackground(Void... arg0) {
-
 			// Temporary URL
 			String authURL = "http://api.linkedin.com/";
-
 			try {
 				// Assume you already obtained an access token and imported the appropriate classes
 				System.out.println("********A basic user profile call********");
@@ -38,13 +37,22 @@ public class LoginActivity extends LinkerActivity {
 				Response response = request.send();
 				 
 				// print out the response body
-				System.out.println(response.getBody());
+				//System.out.println(response.getBody());
+				
+				Linker.user = User.getObjectFromJson(response.getBody().toString() , User.class);
+				System.out.println("member id ==================" + Linker.user.getMemberId());
 			} catch (OAuthException e) {
 				e.printStackTrace();
-				return null;
 			}
-
 			return authURL;
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+			Intent intent = new Intent(LoginActivity.this,  HomeActivity.class);
+			startActivity(intent);
+			finish();
 		}
 	}
 

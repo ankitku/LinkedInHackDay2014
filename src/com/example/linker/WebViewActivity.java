@@ -5,7 +5,6 @@ import org.scribe.builder.api.LinkedInApi;
 import org.scribe.exceptions.OAuthException;
 import org.scribe.model.Token;
 import org.scribe.model.Verifier;
-import org.scribe.oauth.OAuthService;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -99,7 +98,7 @@ public class WebViewActivity extends LinkerActivity {
 		super.onResume();
 		Linker.mService = new ServiceBuilder().provider(LinkedInApi.class)
 				.apiKey(APIKEY).apiSecret(APISECRET).callback(CALLBACK)
-				.scope("r_basicprofile").scope("rw_nus").build();
+				.scope("r_fullprofile").scope("rw_nus").build();
 		
 		(new LinkedInAuthTask()).execute();
 	}
