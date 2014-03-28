@@ -2,7 +2,7 @@ package constants;
 
 public enum LinkerConstants {
 
-	APPS("Current Applications"), NEWAPP("Start New FLow");
+	APPS("Current Applications"), NEWAPP("New Application");
 
 	private LinkerConstants(String name) {
 		this.name = name;

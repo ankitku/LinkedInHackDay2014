@@ -35,6 +35,10 @@
             android:name="HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="NewFlowActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

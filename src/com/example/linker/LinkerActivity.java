@@ -7,31 +7,24 @@ import java.util.List;
 import model.ListItemWithIcon;
 import model.ListviewAdapter;
 import util.ImageCacheManager;
-import util.Utils;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap.CompressFormat;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader.ImageContainer;
 import com.android.volley.toolbox.ImageLoader.ImageListener;
@@ -160,7 +153,8 @@ public class LinkerActivity extends SherlockFragmentActivity {
 	private void startActivityWithName(LinkerConstants name) {
 		switch (name) {
 		case NEWAPP: {
-			// inviteFriends();
+			Intent intent = new Intent(LinkerActivity.this,  NewFlowActivity.class);
+			startActivity(intent);
 			break;
 		}
 		}

@@ -51,11 +51,11 @@ public class NewFlowActivity extends LinkerActivity {
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.activity_newflow);
 	}
 	
 	public void searchCompany(View v)
 	{
-		
+		(new GetCompanyInfoTask()).execute();
 	}
 }
