@@ -9,7 +9,8 @@ public class LinkerApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Linker.queue = Volley.newRequestQueue(this);
+		
+		Linker.queue = Volley.newRequestQueue(getApplicationContext());
 	}
 
 }
